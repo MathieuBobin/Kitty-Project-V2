@@ -30,8 +30,4 @@ end
     )
   end
 
-  10.times do |i|
-    cart = Cart.create!(
-      ordered: false
-    )
-  end
+ 
