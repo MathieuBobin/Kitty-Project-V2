@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :cart_items
   end
   resources :carts
+  resources :users
 end
