@@ -1,5 +1,10 @@
 class CartItemsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
+
+ def index
+  @cart_item = CartItem.find(params[:item_id])
+ end
+
   def create
     if current_user.hasnt_cart?
       Cart.create(user_id: current_user.id)
