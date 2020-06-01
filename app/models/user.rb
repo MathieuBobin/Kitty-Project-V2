@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :cart
+  belongs_to :cart, optional: true
   has_many :orders
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
