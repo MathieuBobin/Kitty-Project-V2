@@ -28,7 +28,7 @@
       <%= link_to "Se déconnecter", destroy_user_session_path, :class => "dropdown-item", method: :delete %>
     </div>
     <button type="button" class="btn btn-secondary">
-    <a href = "/carts/<%=current_user.id%>">Mon panier</a>
+    <a href = "/carts/<%=current_user.cart_id%>">Mon panier</a>
     </button>
   </div>
   <%end%>
