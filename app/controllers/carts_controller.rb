@@ -5,10 +5,7 @@ class CartsController < ApplicationController
   end
   
   def show
-    @carts = Cart.find(params[:id])
-  end 
-
-   
-
-   
+    @cart = Cart.find(params[:id])
+    @cart_items = CartItem.where(cart_id: @cart.id, ordered: false)
+  end
 end
