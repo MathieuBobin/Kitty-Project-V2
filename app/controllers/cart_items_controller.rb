@@ -10,6 +10,7 @@ class CartItemsController < ApplicationController
       Cart.create(user_id: current_user.id)
     end
     
-    @cart_item = CartItem.create(item_id: params[:item_id], cart_id: @current_user.cart_id)
+    @cart_item = CartItem.create(item_id: params[:item_id], cart_id: current_user.id)
+   redirect_to root_path
    end
 end
