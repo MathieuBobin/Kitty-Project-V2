@@ -15,4 +15,7 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.create(item_id: params[:item_id], cart_id: @cart.id)
     redirect_to root_path
    end
+
+   def show
+   end
 end
