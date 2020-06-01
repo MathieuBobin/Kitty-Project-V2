@@ -9,5 +9,5 @@ class User < ApplicationRecord
   
   def hasnt_cart?
     self.cart_id.nil?
-  end        
+  end   
 end
