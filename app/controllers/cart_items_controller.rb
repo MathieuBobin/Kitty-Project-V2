@@ -12,4 +12,7 @@ class CartItemsController < ApplicationController
     
     @cart_item = CartItem.create(item_id: params[:item_id], cart_id: @current_user.cart_id)
    end
+
+   def show
+   end
 end
