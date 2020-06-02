@@ -11,8 +11,7 @@
     <li class="list-group-item"> <%= @user.email %> </li>
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">Mes achats</a>
-    <a href="#" class="card-link">Mon panier</a>
+    <a href="#" class="card-link"><%= link_to "Mon panier 🛒", cart_path %></a>
   </div>
 </div>
 </div>
