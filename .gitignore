@@ -28,3 +28,6 @@
 
 # Ignore Asset Pipeline files
 public/assets
+
+# Ignore .env file containing API keys
+.env

@@ -10,7 +10,7 @@ class CartItemsController < ApplicationController
 
     @cart_item =  CartItem.new(item_id: params[:item_id], cart_id: current_user.cart_id)
     if @cart_item.save
-      flash[:notice] = 'Item added to your cart !'
+      flash[:notice] = 'Le produit est bien rajouté à ton panier !'
     else
       flash[:alert] = @cart_item.errors.full_messages.to_sentence
     end

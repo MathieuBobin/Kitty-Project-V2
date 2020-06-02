@@ -17,9 +17,7 @@ ApplicationRecord.descendants.each { |model|
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: "testos",
-    cart_id: -1
-    
+    password: "testos"
   )
   
 end
@@ -41,5 +39,5 @@ User.all.each { |user|
 
 # Fill some carts
 10.times do
-  CartItem.create(cart_id: Faker::Number.within(range: 1..10), item_id: Faker::Number.within(range: 1..10), ordered: [true, false].sample)
+  CartItem.create(cart_id: Faker::Number.within(range: 1..10), item_id: Faker::Number.within(range: 1..10))
 end

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :items do 
     resources :cart_items
   end
+  resources :orders
 end
