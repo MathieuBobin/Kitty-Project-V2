@@ -15,5 +15,6 @@ class CartsController < ApplicationController
     end
     
     @total = array.inject(0){|sum,x| sum + x }
+
   end
 end
