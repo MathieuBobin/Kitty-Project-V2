@@ -41,5 +41,5 @@ User.all.each { |user|
 
 # Fill some carts
 10.times do
-  CartItem.create(cart_id: Faker::Number.within(range: 1..10), item_id: Faker::Number.within(range: 1..10), ordered: [true, false].sample)
+  CartItem.create(cart_id: Faker::Number.within(range: 1..10), item_id: Faker::Number.within(range: 1..10))
 end

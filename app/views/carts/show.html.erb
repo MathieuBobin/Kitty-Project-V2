@@ -19,14 +19,14 @@
         <td><%=Item.find(x.item_id).title%></td>
         <td>1</td>
         <td><%=Item.find(x.item_id).price%>€</td>
-        <td><%= link_to "Supprimer", destroy_user_session_path, :class => "btn btn-danger btn-sm", method: :delete %></td>
+        <td><%= link_to "Supprimer", cart_item_path(x.id), method: 'delete', :class => "btn btn-danger btn-sm"%></td>
       </tr>
     <%end%>
     <tr class="table-primary">
       <th scope="row">TOTAL</th>
       <td></td>
-      <td></td>
-      <td></td>
+      <td><%=@item_list.count%></td>
+      <td><%=@total%>€</td>
       <td></td>
     </tr>
   </tbody>
