@@ -14,5 +14,6 @@ class CartItemsController < ApplicationController
   
   def destroy
     CartItem.destroy(params[:id])
+    redirect_to ""
   end
 end

@@ -1,1 +1,38 @@
-test
+<div class="container center_div">
+  <div class="texte-bienvenue text-center">
+    <br>
+    <h2>Voici un récapitulatif de vos commandes</h2>
+    <br>
+  </div>
+  <table class="table table-hover">
+  <tbody>
+    <tr class="table-active">
+      <th scope="row">PHOTO</th>
+      <td>Titre</td>
+      <td>Quantité</td>
+      <td>Prix</td>
+      <td></td>
+    </tr>
+    <%@item_list.each do |x|%>
+      <tr>
+        <th scope="row"><img style="height:50px;" src = <%=Item.find(x.item_id).image_url%> ></th>
+        <td><%=Item.find(x.item_id).title%></td>
+        <td>1</td>
+        <td><%=Item.find(x.item_id).price%>€</td>
+        <td><%= link_to "Supprimer", destroy_user_session_path, :class => "btn btn-danger btn-sm", method: :delete %></td>
+      </tr>
+    <%end%>
+    <tr class="table-primary">
+      <th scope="row">TOTAL</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<button type="button" class="btn btn-secondary" ><a href= "/">Revenir à l'accueil</a></button>
+<button type="button" class="btn btn-primary">Passer commande</button>
+<br>
+</div>
