@@ -5,7 +5,10 @@ class ItemsController < ApplicationController
   end
   
   def index
+    puts params
     @item = Item.all
+   
+   
   end
 
 end

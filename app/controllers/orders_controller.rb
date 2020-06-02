@@ -1,11 +1,13 @@
 class OrdersController < ApplicationController
-  def create
-    @cart = Cart.find(params[:id])
-    @cart_item = CartItem.find_by(id: @cart.id)
-    @cart_item.item_id.each do |itemid|
-      {@order = Order.new()}
+  def index
   end
 
-  def show
+  def create
+    @order = Order.create(user_id: current_user.id)
+    @items = CartItem.where({cart_id: current_user.cart_id})
+    @items.each do |itemid|
+      OrderItem.create(order_id: @order.id, item_id: itemid.item_id)
+    end
+    redirect_to action: "index"
   end
 end
