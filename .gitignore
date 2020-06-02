@@ -28,3 +28,5 @@
 
 # Ignore Asset Pipeline files
 public/assets
+
+.env

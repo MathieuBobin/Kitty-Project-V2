@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :welcome_send
   belongs_to :cart, optional: true
   has_many :orders
 
@@ -10,4 +11,8 @@ class User < ApplicationRecord
   def hasnt_cart?
     self.cart_id.nil?
   end   
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
 end

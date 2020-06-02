@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :carts
   resources :users
+  resources :orders
   resources :cart_items
   resources :items do 
     resources :cart_items
