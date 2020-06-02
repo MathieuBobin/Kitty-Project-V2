@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'images/create'
   root 'items#index'
   devise_for :users
   resources :carts
@@ -7,5 +8,8 @@ Rails.application.routes.draw do
   resources :cart_items
   resources :items do 
     resources :cart_items
+  end
+  resources :items, only: [:show] do
+    resources :images, only: [:create]
   end
 end

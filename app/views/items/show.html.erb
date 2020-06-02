@@ -9,13 +9,21 @@
   <div class="row align-items-center">
     <br>
     <div class="col-7">
-        <img class="img-responsive" style="width:100%;" src="<%= @item.image_url %>" alt="">
+      <%if @item.image.attached?%>
+        <%= image_tag(@item.image, style: "width:100%") %>
+      <%else%>
+        <p>=== Image ===</p>
+      <%end%>
+      <%= form_tag item_images_path(@item), multipart: true do %>
+        <%= file_field_tag :image %>
+        <%= submit_tag "mettre à jour" %>
+      <% end %>
     </div>
     <div class="col-5 order-first">
-        <p><%= @item.description %></p>
-        <br>
-        <h5 class="card-text"> Prix de la photo: <%= @item.price %>€</h5>
-              <%= link_to 'Ajouter au panier', item_cart_items_path(@item.id), class:"btn btn-secondary btn-sm border border-secondary", method: :post%>
+      <p><%= @item.description %></p>
+      <br>
+      <h5 class="card-text"> Prix de la photo: <%= @item.price %>€</h5>
+      <%= link_to 'Ajouter au panier', item_cart_items_path(@item.id), class:"btn btn-secondary btn-sm border border-secondary", method: :post%>
     </div>
   </div>
 </div>
