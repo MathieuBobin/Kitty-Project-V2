@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     end
 
     # empty the cart
-    CartItem.where(cart_id: current_user.cart_id)
+    CartItem.where(cart_id: current_user.cart_id).destroy_all
 
     rescue Stripe::CardError => e
       flash[:error] = e.message

@@ -6,21 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Rails.application.eager_load!
-ApplicationRecord.descendants.each { |model|
-  model.delete_all
-  ActiveRecord::Base.connection.reset_pk_sequence!(model.table_name)
-}
+# Rails.application.eager_load!
+# ApplicationRecord.descendants.each { |model|
+#   model.delete_all
+#   ActiveRecord::Base.connection.reset_pk_sequence!(model.table_name)
+# }
 
-10.times do |i|
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: "testos"
-  )
-  
-end
+Item.destroy_all
 
 10.times do |i|
   item = Item.create!(
@@ -28,16 +20,5 @@ end
     description: Faker::Lorem.paragraphs,
     price: rand(1..20),
     image_url: Faker::LoremFlickr.image(size: "286x180", search_terms: ['cats'])
-    
   )
-end
-
-# Create cart for each user
-User.all.each { |user|  
-  Cart.create(user_id: user.id)
-}
-
-# Fill some carts
-10.times do
-  CartItem.create(cart_id: Faker::Number.within(range: 1..10), item_id: Faker::Number.within(range: 1..10))
 end
