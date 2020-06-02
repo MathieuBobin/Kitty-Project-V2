@@ -6,6 +6,7 @@ class CartsController < ApplicationController
   end
   
   def show
+    puts params
     @cart = Cart.find(params[:id])
     @item_list = CartItem.where("cart_id = #{params[:id]}")
     

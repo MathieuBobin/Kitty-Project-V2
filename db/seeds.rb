@@ -15,7 +15,7 @@ ApplicationRecord.descendants.each { |model|
 10.times do |i|
   item = Item.create!(
     title: Faker::Creature::Cat.breed,
-    description: Faker::Lorem.paragraphs,
+    description: Faker::Lorem.sentence(word_count: 50),
     price: rand(1..20),
     image_url: Faker::LoremFlickr.image(size: "286x180", search_terms: ['cats'])
   )

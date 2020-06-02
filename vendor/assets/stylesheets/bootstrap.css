@@ -10520,6 +10520,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
   .navbar {
     display: none;
+    background-color: rgb(0, 0, 8);
   }
   .badge {
     border: 1px solid #000;

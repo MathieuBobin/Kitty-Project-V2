@@ -14,10 +14,7 @@
         </div>
         <div class="card-body">
           <a href="items/<%=x.id%>" class="card-link">Accéder à la fiche <a>
-          <button type="button" class="btn btn-white btn-sm border border-dark">
-              <%= link_to 'Ajouter au panier', item_cart_items_path(x.id), method: :post%>
-            </button>
-            
+              <%= link_to 'Ajouter au panier', item_cart_items_path(x.id), class:"btn btn-secondary btn-sm border border-secondary", method: :post%>
         </div>
       </div>
     </div>
