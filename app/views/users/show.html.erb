@@ -1,9 +1,8 @@
-  
 <div class="text-secondary p-2 row justify-content-center">
   <div class="col-md-5">
     <div class="row p-3 justify-content-left">
-      <h3>MON PROFIL 😼</h3>
-    </div>
+      <h3>MON PROFIL 😼</h3> 
+    </div>  
     <div class="card profil" style="width: 30rem;">
       <img class="card-img-top" src="https://icatcare.org/app/uploads/2018/07/Helping-your-new-cat-or-kitten-settle-in-1.png" alt="Card image cap">
         <ul class="list-group list-group-flush">
@@ -12,7 +11,7 @@
        </ul>
       <div class="card-body">
        <%if current_user.cart_id != nil %>
-         <a href="/carts/#{current_user.cart_id}" class="card-link"><%= link_to "Mon panier 🧺", cart_path %></a>
+        <a class="card-link" href = "/carts/<%=current_user.cart_id%>"> Mon panier 🧺 </a>
        <%else%>
        <p> Vous n'avez pas encore de produits dans votre panier!</p>
        <%end%>
@@ -29,17 +28,16 @@
 <br>
   <div class="col-md-4">
     <h3 class="p-3">Mes achats 🛒</h3>
+      <% Order.where("user_id = #{current_user.id}").each do |x| %>   
       <div class="card">
-     <% @items.each do |x| %>
-        <div class="card-header">
-         <% @order.id %>
+        <div class="card-header">COMMANDE N° <%= x.id %> <br> <em><small>le <%= x.created_at %></small></em></div>
+           <div class="card-body">
+             <% OrderItem.where("order_id = #{x.id}").each do |j| %> 
+               <p class="card-text ">"<%= Item.find(j.item_id).title%>", <%= Item.find(j.item_id).price%>€</p>
+             <% end %>
+           </div>
         </div>
-        <div class="card-body">
-          <h5 class="card-title">iTEM</h5>
-            <p class="card-text">pRIX.</p>
-        </div>
+        <br>
+      <% end %>
      </div>
-       <%end %>
-
   </div>
-
