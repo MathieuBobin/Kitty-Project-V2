@@ -10,9 +10,9 @@ class CartItemsController < ApplicationController
 
     @cart_item =  CartItem.new(item_id: params[:item_id], cart_id: current_user.cart_id)
     if @cart_item.save
-      flash[:notice] = 'Un produit a été ajouté à votre panier !'
+      flash.now[:notice] = 'Un produit a été ajouté à votre panier !'
     else
-      flash[:alert] = @cart_item.errors.full_messages.to_sentence
+      flash.now[:alert] = @cart_item.errors.full_messages.to_sentence
     end
     redirect_to root_path
   end

@@ -6,13 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Rails.application.eager_load!
-# ApplicationRecord.descendants.each { |model|
-#   model.delete_all
-#   ActiveRecord::Base.connection.reset_pk_sequence!(model.table_name)
-# }
-
-Item.destroy_all
+Rails.application.eager_load!
+ApplicationRecord.descendants.each { |model|
+  model.delete_all
+  ActiveRecord::Base.connection.reset_pk_sequence!(model.table_name)
+}
 
 10.times do |i|
   item = Item.create!(

@@ -34,7 +34,7 @@
   </table>
   <br>
   <button type="button" class="btn btn-secondary" ><a href= "/">Revenir à l'accueil</a></button>
-  <%= link_to "Passer Commande", orders_path, :class => "btn btn-primary", method: :post %>
+  <%= link_to "Passer Commande", new_order_path, :class => "btn btn-primary" %>
   <br>
 <%else%>
   <div class="texte-bienvenue text-center">
