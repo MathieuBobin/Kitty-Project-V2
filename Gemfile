@@ -12,6 +12,7 @@ gem "letter_opener", :group => :development
 gem 'activesupport'
 gem 'pry'
 gem "table_print"
+gem 'mailjet'
 # -------
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

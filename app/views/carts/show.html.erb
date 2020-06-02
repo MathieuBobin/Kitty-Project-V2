@@ -1,4 +1,5 @@
 <div class="container center_div">
+<%if @item_list.count != 0 %>
   <div class="texte-bienvenue text-center">
     <br>
     <h2>Voici un récapitulatif de vos commandes</h2>
@@ -19,18 +20,34 @@
         <td><%=Item.find(x.item_id).title%></td>
         <td>1</td>
         <td><%=Item.find(x.item_id).price%>€</td>
-        <td><%= link_to "Supprimer", destroy_user_session_path, :class => "btn btn-danger btn-sm", method: :delete %></td>
+        <td><%= link_to "Supprimer", cart_item_path(x.id), method: 'delete', :class => "btn btn-danger btn-sm"%></td>
       </tr>
     <%end%>
     <tr class="table-primary">
       <th scope="row">TOTAL</th>
       <td></td>
-      <td></td>
-      <td></td>
+      <td><%=@item_list.count%></td>
+      <td><%=@total%>€</td>
       <td></td>
     </tr>
   </tbody>
-</table>
+  </table>
+  <br>
+  <button type="button" class="btn btn-secondary" ><a href= "/">Revenir à l'accueil</a></button>
+  <%= link_to "Passer Commande", orders_path, :class => "btn btn-primary", method: :post %>
+  <br>
+<%else%>
+  <div class="texte-bienvenue text-center">
+    <br>
+    <h2>Vous n'avez aucun produit dans votre panier!</h2> <br>
+    <img src = https://images.pexels.com/photos/127027/pexels-photo-127027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 style="height: 500px;" >
+    <br>
+    <br>
+    <button type="button" class="btn btn-secondary"><a href= "/">Revenir à l'accueil</a></button>
+    <br>
+    <br>
+  </div>
+<%end%>
 <br>
 <button type="button" class="btn btn-secondary" ><a href= "/">Revenir à l'accueil</a></button>
 <%= link_to 'Passer commande', new_order_path, class: 'btn btn-primary' %>

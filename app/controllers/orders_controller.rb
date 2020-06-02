@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   def new
-
   end
   
   def create
@@ -18,7 +17,14 @@ class OrdersController < ApplicationController
       currency: 'eur',
       })
 
-    # create new order here
+    @order = Order.create(user_id: current_user.id)
+    @cart_items = CartItem.where({cart_id: current_user.cart_id})
+    @cart_items.each do |cart_item|
+      OrderItem.create(order_id: @order.id, item_id: cart_item.item_id)
+    end
+
+    # empty the cart
+    CartItem.where(cart_id: current_user.cart_id)
 
     rescue Stripe::CardError => e
       flash[:error] = e.message

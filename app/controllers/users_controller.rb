@@ -10,6 +10,25 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if current_user.id != @user.id
+      flash[:error] = "Vous n'êtes pas autorisés."
+    redirect_to root_path
+  end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Ton profil a été mis-à-jour."
+      redirect_to user_path(@user.id)
+    else
+      render 'edit'
+    end
+
   end
 
   private

@@ -10,7 +10,7 @@ class CartItemsController < ApplicationController
 
     @cart_item =  CartItem.new(item_id: params[:item_id], cart_id: current_user.cart_id)
     if @cart_item.save
-      flash[:notice] = 'Le produit est bien rajouté à ton panier !'
+      flash[:notice] = 'Un produit a été ajouté à votre panier !'
     else
       flash[:alert] = @cart_item.errors.full_messages.to_sentence
     end
@@ -19,6 +19,6 @@ class CartItemsController < ApplicationController
   
   def destroy
     CartItem.destroy(params[:id])
-    redirect_to ""
+    redirect_to root_path
   end
 end
