@@ -3,12 +3,7 @@ Récap de la commande n° <%= @order.id %>
  
 Commande passée par <%= @user.first_name %> <%= @user.last_name %> le <%= @order.created_at %>
 
-<%if @order.images%>
-  <%= @order.images.each do |image| %>
-    <%= path = "https://www.example.com" + Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true)%>
-    <img src="<%=path%>">
-  <%end%>
-  <%end%>
+ <%= image_tag(item.image) %>
  
  
 <%= @url %>
