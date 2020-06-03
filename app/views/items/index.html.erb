@@ -3,7 +3,7 @@
 <div class="container-fluid mt-4">
     <h1 class="h3 mb-3 font-weight-normal text-center">Les photos de chatons disponibles actuellement:</h1><br>
     <div class="row justify-content-center">
-    <%Item.all.each do |x|%>
+    <%Item.all.sort_by{|obj| obj.id}.each do |x|%>
     <div class="col-auto mb-4">
       <div class="card mb-4">
         <h3 class="card-header"> Photo nº<%=x.id%></h3>
