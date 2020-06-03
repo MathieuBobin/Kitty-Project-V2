@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_one_attached :image
+  has_many_attached :images
   after_create :welcome_payment
   after_create :admin_receipt
   belongs_to :user, optional: true
