@@ -3,7 +3,10 @@ Merci pour votre commande !
  
 Commande n° <%= @order.id %> 
 
- <%= image_tag(item.image) %>
+<%= @order.items.each do |item| %>
+   <%= image_tag(item.image) %>
+  <%end%>
+ 
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
  
 À très vite sur Ze Kitten Project !

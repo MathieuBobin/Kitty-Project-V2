@@ -8,7 +8,10 @@
     </p> Commande numéro <%= @order.id %></p>
 
   
- <%= image_tag(item.image) %>
+ <%= @order.items.each do |item| %>
+   <%= image_tag(item.image) %>
+  <%end%>
+ 
  
       Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
     </p>

@@ -3,8 +3,11 @@ Récap de la commande n° <%= @order.id %>
  
 Commande passée par <%= @user.first_name %> <%= @user.last_name %> le <%= @order.created_at %>
 
- <%= image_tag(item.image) %>
- 
+
+
+ <%= @order.items.each do |item| %>
+   <%= image_tag(item.image) %>
+  <%end%>
  
 <%= @url %>
  
