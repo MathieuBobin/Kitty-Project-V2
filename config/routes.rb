@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'images/create'
   root 'items#index'
   devise_for :users
   resources :carts

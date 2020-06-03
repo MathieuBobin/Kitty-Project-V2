@@ -11,7 +11,7 @@ class User < ApplicationRecord
   def hasnt_cart?
     self.cart_id.nil?
   end   
-
+  
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end

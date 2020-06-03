@@ -14,9 +14,13 @@
       <td>Prix</td>
       <td></td>
     </tr>
-    <%@item_list.each do |x|%>
+    <% @item_list.each do |x| %>
       <tr>
-        <th scope="row"><img style="height:50px;" src = <%=Item.find(x.item_id).image_url%> ></th>
+        <%if Item.find(x.item_id).image.attached?%>
+        <th scope="row"><%= image_tag Item.find(x.item_id).image, alt: "Card image", width: 120, height: 80 %></th>
+        <%else%>
+        <th scope="row"><p>=== Image ===</p></th>
+        <%end%>
         <td><%=Item.find(x.item_id).title%></td>
         <td>1</td>
         <td><%=Item.find(x.item_id).price%>€</td>
@@ -33,8 +37,8 @@
   </tbody>
   </table>
   <br>
-    <a class="btn btn-secondary" href="/">Revenir à l'accueil</a>
-  <%= link_to "Passer Commande", orders_path, :class => "btn btn-primary", method: :post %>
+  <%= link_to 'Revenir à l\'accueil', root_path, class: 'btn btn-secondary text-decoration-none' %>
+  <%= link_to "Passer Commande", new_order_path, :class => "btn btn-primary text-decoration-none" %>
   <br>
 <%else%>
   <div class="texte-bienvenue text-center">
@@ -43,11 +47,9 @@
     <img src = https://images.pexels.com/photos/127027/pexels-photo-127027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 style="height: 500px;" >
     <br>
     <br>
-   <a class="btn btn-secondary" href="/">Revenir à l'accueil</a>
+  <a class="btn btn-secondary text-decoration-none" href="/">Revenir à l'accueil</a>
     <br>
     <br>
   </div>
 <%end%>
-</div>
-</table>
 </div>

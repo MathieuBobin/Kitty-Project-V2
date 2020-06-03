@@ -8,11 +8,10 @@
       <div class="card mb-4">
         <h3 class="card-header"> Photo nº<%=x.id%></h3>
         <%if x.image.attached?%>
-          <%= image_tag x.image, alt: "Card image", width: 325, height: "auto" %>
+          <%= image_tag x.image, alt: "Card image", width: 325, height: 210 %>
         <%else%>
           <p>=== Image ===</p>
-         <%end%>
-      
+        <%end%>
         <div class="card-body">
           <p class = "card-text"><%=x.title%></p>
           <p class="card-text">Prix de la photo: <%=x.price%> euros</p>

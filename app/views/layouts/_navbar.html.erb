@@ -21,14 +21,15 @@
   </div>
 
   <%else%>
-   <div class="btn-group" role="group">
+  <div class="btn-group" role="group">
     <button id="btnGroupDrop3" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bienvenue <%=current_user.first_name%></button>
     <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
       <a class="dropdown-item" href=/users/<%=current_user.id%>>Mon Profil</a>
       <%= link_to "Se déconnecter", destroy_user_session_path, :class => "dropdown-item", method: :delete %>
     </div>
     <%if current_user.cart_id != nil %>
-      <a class="btn btn-secondary"href = "/carts/<%=current_user.cart_id%>">Mon panier</a>
+      <!--<a class="btn btn-secondary"href = "/carts/<%=current_user.cart_id%>">Mon panier 🛒</a>-->
+      <a class="btn btn-secondary d-flex flex-row justify-content-between align-items-center px-3 py-1" href = "/carts/<%=current_user.cart_id%>"><span class='mr-1'>Mon panier</span><span class='d-flex flex-column justify-content-center align-items-center ml-1'><span class='my-0 py-0 font-weight-bold text-danger h6'><%= current_user_cart_items_count %></span><span class='my-0 py-0'>🛒</span></span></a>
     <%end%>
   </div>
   <%end%>
