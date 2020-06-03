@@ -4,16 +4,16 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Merci pour votre commande</h1>
-    </p> Commande numéro <%= @order.id %></p>
+    <h1>Récap de la commande numéro  <%= @order.id %></h1>
+    </p> Cette commande a été passée par <%= @user.first_name %> <%= @user.last_name %> le <%= @order.created_at %></p>
 
 <%= @order.items.each do |item|%>
     <%= item.image_url %>
 
     <%end%>
-    
-      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+    <p>
+     <%= @url %>
     </p>
-    <p> À très vite sur Ze Kitten Project !</p>
+   
   </body>
 </html>

@@ -1,12 +1,12 @@
-Merci pour votre commande !
+Récap de la commande n° <%= @order.id %> 
 ==========================================================
  
-Commande n° <%= @order.id %> 
+Commande passée par <%= @user.first_name %> <%= @user.last_name %> le <%= @order.created_at %>
+
 <%= @order.items.each do |item|%>
     <%= item.image_url %>
 
     <%end%>
  
-Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+<%= @url %>
  
-À très vite sur Ze Kitten Project !
