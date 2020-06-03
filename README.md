@@ -1,6 +1,10 @@
 # Ze Kitten Project 🐱
 
-### Des photos de chat de qualité
+## Le site
+
+### Le pitch
+
+##### Des photos de chats de qualité !
 
 Inconditionnel de photos de chats, vous recherchez le meilleur? N'allez pas plus loin !  
 Ze Kitten Project est la référence dans ce domaine : chats mignons, chats grognons, il y en a pour tous les goûts. 
@@ -18,6 +22,6 @@ Afin de proposer un site viable et solide, nous avons utilisé les fonctionalit�
 * MailJet, qui permet l'envoie d'email
 
 
-### L'équipe
+# L'équipe
 
 Mathieu, Brahim, Timothé et les deux Mathilde ont créé ce site pour vous ! 😽
