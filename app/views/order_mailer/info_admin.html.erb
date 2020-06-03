@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1>Récap de la commande numéro  <%= @order.id %></h1>
-    </p> Cette commande a été passée par <%= @user.first_name %> <%= @user.last_name %>< le <%= @order.created_at %></p>
+    </p> Cette commande a été passée par <%= @user.first_name %> <%= @user.last_name %> le <%= @order.created_at %></p>
 
 <%= @order.items.each do |item|%>
     <%= item.image_url %>
