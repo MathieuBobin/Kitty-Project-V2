@@ -11,13 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @items_cart = User.find(params[:id]).items
-    
     @user = User.find(params[:id])
-    # if current_user.id != @user.id
-    #   flash[:error] = "Vous n'êtes pas autorisés."
-    # redirect_to root_path
-    # end
   end
 
   def edit

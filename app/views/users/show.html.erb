@@ -27,17 +27,31 @@
 <br>
 <br>
   <div class="col-md-4">
-    <h3 class="p-3">Mes achats 🛒</h3>
+    <h3 class="p-3">Mes achats 🛒</h3>     
+
       <% Order.where("user_id = #{current_user.id}").each do |x| %>   
       <div class="card">
-        <div class="card-header">COMMANDE N° <%= x.id %> <br> <em><small>le <%= x.created_at %></small></em></div>
+        <div class="card-header bg-dark text-white">COMMANDE N° <%= x.id %>  <small>faite le <%= x.created_at.strftime('%d/%m/%Y à %I:%M %p') %></small></div>
            <div class="card-body">
+            <%array = []%> 
              <% OrderItem.where("order_id = #{x.id}").each do |j| %> 
-               <p class="card-text ">"<%= Item.find(j.item_id).title%>", <%= Item.find(j.item_id).price%>€</p>
-             <% end %>
-           </div>
+             <div class="card-text">
+              <div class="container row justify-content-between">
+                 <p>"<%= Item.find(j.item_id).title%>"</p>
+                 <p> <%= Item.find(j.item_id).price%>€</p></div>
+              </div>
+                   <%array << Item.find(j.item_id).price%> 
+                   <% end %> 
+              </div>
+              <div class="card-footer font-weight-bold" style="height: 3rem;">
+                 <div class="container row justify-content-between">
+                   <p>TOTAL </p>
+                   <p><%=array.inject(0){|sum,j| sum + j }%> €</p>
+                 </div>
+              </div>
         </div>
         <br>
       <% end %>
      </div>
   </div>
+  
