@@ -10,8 +10,7 @@
   
  <%if @order.images%>
   <%= @order.images.each do |image| %>
-    <% path = "https://www.example.com" + Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true)%>
-    <img src="<%=path%>">
+    <%=@order.image.url %>
   <%end%>
   <%end%>
  
