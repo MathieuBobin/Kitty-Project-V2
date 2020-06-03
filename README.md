@@ -2,7 +2,7 @@
 
 ## Le site
 
-### Le pitch
+### Notre pitch
 
 ##### Des photos de chats de qualité !
 
@@ -22,6 +22,6 @@ Afin de proposer un site viable et solide, nous avons utilisé les fonctionalit�
 * MailJet, qui permet l'envoie d'email
 
 
-# L'équipe
+## L'équipe
 
 Mathieu, Brahim, Timothé et les deux Mathilde ont créé ce site pour vous ! 😽
