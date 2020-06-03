@@ -10,4 +10,8 @@ class Cart < ApplicationRecord
 
     prices.sum
   end
+
+  def items_count
+    self.items.count
+  end
 end
