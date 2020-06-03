@@ -13,4 +13,13 @@ class OrderMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Votre commande chez Ze Kitten Project!') 
     #mail(to: @admin, subject: 'Historique des commandes!') 
   end
+
+  def info_admin(order)
+    @order = order
+    @user = order.user
+    @admin = 'kittenproject@yopmail.fr' 
+
+    @url  = 'https://kitten-project-development.herokuapp.com/' 
+    mail(to: @admin, subject: 'Historique des commandes!') 
+  end
 end

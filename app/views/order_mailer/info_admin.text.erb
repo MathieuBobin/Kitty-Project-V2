@@ -1,0 +1,12 @@
+Merci pour votre commande !
+==========================================================
+ 
+Commande n° <%= @order.id %> 
+<%= @order.items.each do |item|%>
+    <%= item.image_url %>
+
+    <%end%>
+ 
+Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+ 
+À très vite sur Ze Kitten Project !
