@@ -33,8 +33,8 @@
   </tbody>
   </table>
   <br>
-  <button type="button" class="btn btn-secondary" ><a href= "/">Revenir à l'accueil</a></button>
-  <%= link_to "Passer Commande", new_order_path, :class => "btn btn-primary" %>
+  <%= link_to 'Revenir à l\'accueil', root_path, class: 'btn btn-secondary text-decoration-none' %>
+  <%= link_to "Passer Commande", new_order_path, :class => "btn btn-primary text-decoration-none" %>
   <br>
 <%else%>
   <div class="texte-bienvenue text-center">
@@ -43,7 +43,7 @@
     <img src = https://images.pexels.com/photos/127027/pexels-photo-127027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 style="height: 500px;" >
     <br>
     <br>
-  <a class="btn btn-secondary" href="/">Revenir à l'accueil</a>
+  <a class="btn btn-secondary text-decoration-none" href="/">Revenir à l'accueil</a>
     <br>
     <br>
   </div>

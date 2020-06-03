@@ -1,6 +1,4 @@
 class CartsController < ApplicationController
-
-  
   def index
     @cart = Cart.all
   end
@@ -16,10 +14,5 @@ class CartsController < ApplicationController
     end
     
     @total = array.inject(0){|sum,x| sum + x }
-
   end
-
-  private
-
-
 end

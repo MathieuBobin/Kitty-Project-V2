@@ -9,14 +9,14 @@
             </div>
           <% end %>
           <label class="col-form-label">
-            <span>Vous êtes au point de payer votre commande au total de : 0.0 €</span>
+            <span>Vous êtes au point de payer votre commande au total de : <%= current_user_cart_total %> €</span>
           </label>
         </div>
 
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-description="A month's subscription"
-                data-amount="500"
+                data-amount="<%= current_user_cart_total * 100 %>"
                 data-currency="eur"
                 data-locale="auto"></script>
       <% end %>
