@@ -11,6 +11,6 @@ class OrderMailer < ApplicationMailer
     @url  = 'https://kitten-project-development.herokuapp.com/' 
 
     # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
-    mail(to: @user.email, subject: 'Merci pour le paiement !') 
+    mail(to: @user.email, subject: 'Votre commande chez Ze Kitten Project!') 
   end
 end
