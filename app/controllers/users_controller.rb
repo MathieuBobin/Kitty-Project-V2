@@ -27,9 +27,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Ton profil a été mis-à-jour."
-      redirect_to user_path(@user.id)
+      redirect_to mon_profil_path
     else
-      render 'edit'
+      render editer_mon_profil_path
     end
   end
 
