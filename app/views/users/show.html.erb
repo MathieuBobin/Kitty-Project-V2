@@ -32,11 +32,7 @@
 
       <% Order.where("user_id = #{current_user.id}").each do |x| %>   
       <div class="card">
-<<<<<<< HEAD
-        <div class="card-header">COMMANDE N° <%= x.id %> <br> <em><small>le <%= x.created_at.strftime('%d/%m/%Y à %I:%M %p') %></small></em></div>
-=======
         <div class="card-header bg-dark text-white">COMMANDE N° <%= x.id %>  <small>faite le <%= x.created_at.strftime('%d/%m/%Y à %I:%M %p') %></small></div>
->>>>>>> 4d64e9d6048f6a3f879b172c3f6c48d590596724
            <div class="card-body">
             <%array = []%> 
              <% OrderItem.where("order_id = #{x.id}").each do |j| %> 
