@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
     if @order.save
       # empty the user cart
       empty_current_user_cart
-      flash[:alert] = 'Achat créé avec succès !'
+      flash.now[:alert] = 'Commande validée !'
 
       # Insert here the code to charge the credit card, the code will use stripeToken
     else

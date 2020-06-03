@@ -14,7 +14,7 @@ class CartItemsController < ApplicationController
     else
       flash[:alert] = @cart_item.errors.full_messages.to_sentence
     end
-    redirect_to root_path
+    redirect_back fallback_location: root_path
   end
   
   def destroy

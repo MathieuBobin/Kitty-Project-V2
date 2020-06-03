@@ -6,16 +6,18 @@
     <%Item.all.each do |x|%>
     <div class="col-auto mb-4">
       <div class="card mb-4">
-        <h3 class="card-header"> Photo nº<%=x.id%></h3>
-        <img style="height: 100%; width: 100%; display: block;" src="<%=x.image_url%>" alt="Card image">
-        <div class="card-body">
-          <p class = "card-text"><%=x.title%></p>
-          <p class="card-text">Prix de la photo: <%=x.price%> euros</p>
-        </div>
-        <div class="card-body">
-          <a href="items/<%=x.id%>" class="card-link">Accéder à la fiche <a>
-              <%= link_to 'Ajouter au panier', item_cart_items_path(x.id), class:"btn btn-secondary btn-sm border border-secondary", method: :post%>
-        </div>
+        <a href="<%= item_path(x.id)%>", class='text-decoration-none'>
+          <h3 class="card-header"> Photo nº<%=x.id%></h3>
+          <img style="height: 100%; width: 100%; display: block;" src="<%=x.image_url%>" alt="Card image">
+          <div class="card-body">
+            <p class = "card-text"><%=x.title%></p>
+            <p class="card-text">Prix de la photo: <%=x.price%> euros</p>
+          </div>
+          <div class="card-body">
+            <a href="items/<%=x.id%>" class="card-link">Accéder à la fiche <a>
+                <%= link_to 'Ajouter au panier', item_cart_items_path(x.id), class:"btn btn-secondary btn-sm border border-secondary", method: :post%>
+          </div>
+        </a>
       </div>
     </div>
   <%end %>

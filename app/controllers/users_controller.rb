@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :is_current_user_showing?, only: [:show]
+  before_action :rights_to_show_profil, only: [:show]
 
   def index
     User.find(params[:id])
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email)
   end
 
-  def is_current_user_showing?
+  def rights_to_show_profil
     unless current_user.id.to_s == params[:id].to_s
       flash[:danger] = "Vous n'avez pas le droit d'accéder à un profil autre que le votre !"
       redirect_to user_path(current_user.id)
