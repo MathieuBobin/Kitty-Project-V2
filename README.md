@@ -2,7 +2,7 @@
 
 ## Le site
 
-### Notre pitch
+### * Notre pitch
 
 ##### Des photos de chats de qualité !
 
@@ -11,9 +11,9 @@ Ze Kitten Project est la référence dans ce domaine : chats mignons, chats grog
   
 Visitez notre site : https://kitten-project-development.herokuapp.com/
 
-### Le projet
+### * Le projet
 
-Ce site a été créé dans le cadre de la formation Full Stack Web délivrée par The Hacking Project.  
+Ce site a été créé dans le cadre de la formation Full Stack Web délivrée par **The Hacking Project**.  
 Il a été programmé en Ruby avec Ruby on rails.   
 Afin de proposer un site viable et solide, nous avons utilisé les fonctionalités suivantes :  
 * Stripe, nécessaire pour mettre en place un système de paiement
