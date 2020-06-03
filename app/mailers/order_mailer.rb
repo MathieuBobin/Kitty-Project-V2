@@ -5,7 +5,7 @@ class OrderMailer < ApplicationMailer
     #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
     @order = order 
     @user = order.user
-    @image_url = Rails.application.routes.url_helpers.rails_blob_url(blob)
+    @image_url = Rails.application.routes.url_helpers.rails_blob_url(order)
       
     #on définit une variable @url qu'on utilisera dans la view d’e-mail
     @url  = 'https://kitten-project-development.herokuapp.com/' 
