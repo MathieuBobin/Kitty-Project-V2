@@ -14,10 +14,15 @@
       <%else%>
         <p>=== Image ===</p>
       <%end%>
-      <%= form_tag item_images_path(@item), multipart: true do %>
-        <%= file_field_tag :image %>
-        <%= submit_tag "mettre à jour" %>
+
+      <%if %>
+        <%= form_tag item_images_path(@item), multipart: true do %>
+          <%= file_field_tag :image %>
+          <%= submit_tag "mettre à jour" %>
+        <% end %>
+      <%else%>
       <% end %>
+
     </div>
     <div class="col-5 order-first">
       <p><%= @item.description %></p>
