@@ -15,7 +15,8 @@
         <p>=== Image ===</p>
       <%end%>
 
-      <%if %>
+      <%if current_user == nil %>
+      <%elsif current_user.email == "zekittenproject@gmail.com"%>
         <%= form_tag item_images_path(@item), multipart: true do %>
           <%= file_field_tag :image %>
           <%= submit_tag "mettre à jour" %>
