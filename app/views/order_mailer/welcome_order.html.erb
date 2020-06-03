@@ -7,11 +7,14 @@
     <h1>Merci pour votre commande</h1>
     </p> Commande numéro <%= @order.id %></p>
 
-<%= @order.items.each do |item|%>
-   <img src="<%= @image_url %>">
-
-    <%end%>
-    <p>
+  
+ <%if @order.images%>
+  <%= @order.images.each do |image| %>
+    <% path = "https://www.example.com" + Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true)%>
+    <img src="<%=path%>">
+  <%end%>
+  <%end%>
+ 
       Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
     </p>
     <p> À très vite sur Ze Kitten Project !</p>
