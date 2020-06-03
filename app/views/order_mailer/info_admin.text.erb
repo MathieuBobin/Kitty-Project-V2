@@ -1,0 +1,12 @@
+Récap de la commande n° <%= @order.id %> 
+==========================================================
+ 
+Commande passée par <%= @user.first_name %> <%= @user.last_name %> le <%= @order.created_at %>
+
+<%= @order.items.each do |item|%>
+    <%= item.image_url %>
+
+    <%end%>
+ 
+<%= @url %>
+ 

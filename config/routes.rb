@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :cart_items
   end
   resources :orders
+  resources :items, only: [:show] do
+    resources :images, only: [:create]
+  end
 
   # Add pesonalized routes
   get '/mon_panier', to: 'carts#show', as: 'mon_panier'

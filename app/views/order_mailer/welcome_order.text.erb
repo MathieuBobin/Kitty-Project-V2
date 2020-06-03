@@ -1,8 +1,11 @@
-Merci pour ta commande !
+Merci pour votre commande !
 ==========================================================
  
 Commande n° <%= @order.id %> 
-Tu t'es inscrit sur Ze Kitten Project en utilisant l'e-mail suivant : <%= @user.email %>.
+<%= @order.items.each do |item|%>
+    <%= item.image_url %>
+
+    <%end%>
  
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
  
