@@ -11,9 +11,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = current_user
     # @items_cart = User.find(params[:id]).items
-    
-    @user = User.find(params[:id])
     # if current_user.id != @user.id
     #   flash[:error] = "Vous n'êtes pas autorisés."
     # redirect_to root_path
@@ -21,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
@@ -32,7 +31,6 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
-
   end
 
   private
@@ -42,9 +40,11 @@ class UsersController < ApplicationController
   end
 
   def rights_to_show_profil
-    unless current_user.id.to_s == params[:id].to_s
-      flash[:danger] = "Vous n'avez pas le droit d'accéder à un profil autre que le votre !"
-      redirect_to user_path(current_user.id)
+    if params[:id]
+      unless current_user.id.to_s == params[:id].to_s
+        flash[:danger] = "Vous n'avez pas le droit d'accéder à un profil autre que le votre !"
+        redirect_to user_path(current_user.id)
+      end
     end
   end
 end
