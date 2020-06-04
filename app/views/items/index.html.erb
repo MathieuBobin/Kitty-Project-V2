@@ -25,7 +25,7 @@
         <div class="card-body">
           <p class = "card-text"><%=x.title%></p>
           <p class="card-text">Prix de la photo: <%=x.price%> euros</p>
-          
+          <span class="badge badge-primary"><%=Category.find(x.category_id).name%></span>
         </div>
         
         <div class="card-body">
