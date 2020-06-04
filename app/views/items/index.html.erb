@@ -6,9 +6,9 @@
       <select class="custom-select" style = "width: 400px">
         <option selected="">Choisissez une catégorie</option>
         <option value="tous">Tous</option>
-        <option value="1">Chat Mignon</option>
-        <option value="2">Chat Très Mignon</option>
-        <option value="3">Chat Encore plus Mignon</option>
+        <%@category.each do |x|%>
+          <option value="<%=x.id%>"><%=x.name%></option>
+        <%end%>
       </select>
     </div>
     <br>
