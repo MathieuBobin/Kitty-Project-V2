@@ -9,7 +9,7 @@
 Inconditionnel de photos de chats, vous recherchez le meilleur? N'allez pas plus loin !  
 Ze Kitten Project est la référence dans ce domaine : chats mignons, chats grognons, il y en a pour tous les goûts. 
   
-Visitez notre site : https://ze-kitten-project.herokuapp.com/
+Visitez notre site : https://ze-kitten-project.herokuapp.com/   
 En développement : https://kitten-project-development.herokuapp.com/
 
 ### Le projet
