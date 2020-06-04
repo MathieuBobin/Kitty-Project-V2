@@ -11,7 +11,7 @@ class OrderMailer < ApplicationMailer
     #@image_url = Rails.application.routes.url_helpers.rails_blob_url(order)
       
     #on définit une variable @url qu'on utilisera dans la view d’e-mail
-    @url  = 'https://kitten-project-development.herokuapp.com/' 
+    @url  = 'https://ze-kitten-project.herokuapp.com/' 
 
     # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
     mail(to: @user.email, subject: 'Votre commande chez Ze Kitten Project!') 
@@ -23,7 +23,7 @@ class OrderMailer < ApplicationMailer
     @user = order.user
     @admin = 'zekittenproject@gmail.com' 
 
-    @url  = 'https://kitten-project-development.herokuapp.com/' 
+    @url  = 'https://ze-kitten-project.herokuapp.com/' 
     mail(to: @admin, subject: 'Historique des commandes!') 
   end
 end
