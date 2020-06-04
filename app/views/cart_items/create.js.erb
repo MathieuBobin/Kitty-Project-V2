@@ -1,0 +1,4 @@
+document.getElementById("items_count").innerHTML = "<%= current_user_cart_items_count %>";
+<% if !@cart_item.save%>
+alert('<%=@cart_item.errors.full_messages.to_sentence%>')
+<%end%>

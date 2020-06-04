@@ -29,7 +29,7 @@
       <p><%= @item.description %></p>
       <br>
       <h5 class="card-text"> Prix de la photo: <%= @item.price %>€</h5>
-      <%= link_to 'Ajouter au panier', item_cart_items_path(@item.id), class:"btn btn-secondary btn-sm border border-secondary", method: :post%>
+      <%= link_to 'Ajouter au panier', item_cart_items_path(@item.id), id: "linkto", class:"btn btn-secondary btn-sm border border-secondary", method: :post, remote: true%>
     </div>
   </div>
 </div>
