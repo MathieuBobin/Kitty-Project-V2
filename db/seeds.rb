@@ -29,12 +29,3 @@ Category.create(name: 'LaPerm')
 Category.create(name: 'Ocicat')
 Category.create(name: 'Persan')
 Category.create(name: 'Siamois')
-
-10.times do |i|
-  item = Item.create!(
-    title: Faker::Creature::Cat.breed,
-    description: Faker::Lorem.sentence(word_count: 50),
-    price: rand(1..20),
-    category_id: Faker::Number.within(range: 1..10)
-  )
-end
