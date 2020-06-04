@@ -7,11 +7,17 @@
     <h1>Merci pour votre commande</h1>
     </p> Commande numéro <%= @order.id %></p>
 
-<%= @order.items.each do |item|%>
-   <img src="<%= @image_url %>">
+    <br>
+    <br>
 
-    <%end%>
-    <p>
+  
+ <%= @order.items.each do |item| %>
+<%= image_tag(item.image,  :size => "260x180") %> 
+  <%end%>
+ <br>
+ <br>
+
+ <p>
       Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
     </p>
     <p> À très vite sur Ze Kitten Project !</p>

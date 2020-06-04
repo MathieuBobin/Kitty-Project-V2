@@ -2,10 +2,10 @@ Merci pour votre commande !
 ==========================================================
  
 Commande n° <%= @order.id %> 
-<%= @order.items.each do |item|%>
-    <%= item.image_url %>
 
-    <%end%>
+<%= @order.items.each do |item| %>
+<%= image_tag(item.image,  :size => "260x180") %> 
+  <%end%>
  
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
  

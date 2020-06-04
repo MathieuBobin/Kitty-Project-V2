@@ -13,7 +13,7 @@ gem 'activesupport'
 gem 'pry'
 gem "table_print"
 gem 'mailjet'
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk', '~> 3'
 # -------
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
