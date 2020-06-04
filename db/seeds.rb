@@ -13,11 +13,13 @@
 # }
 
 CartItem.destroy_all
-Item.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!(CartItem.table_name)
 Category.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!(Category.table_name)
 OrderItem.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!(OrderItem.table_name)
 Order.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!(Order.table_name)
 
 Category.create(name: 'Abyssin')
 Category.create(name: 'Bengal')
