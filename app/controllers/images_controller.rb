@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+
+  
   def create
     @item = Item.find(params[:item_id])
     if( params[:image] != nil)
@@ -6,4 +8,5 @@ class ImagesController < ApplicationController
     end
     redirect_to(item_path(@item))
   end
+
 end

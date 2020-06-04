@@ -9,8 +9,5 @@ class Item < ApplicationRecord
   belongs_to :category
   has_one_attached :image
 
-  def my_url
-    rails_blob_path(item.images, disposition: "attachment")
-  end
 
 end
