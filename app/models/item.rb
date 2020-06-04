@@ -8,8 +8,5 @@ class Item < ApplicationRecord
   has_many :carts, through: :cart_items
   has_one_attached :image
 
-  def my_url
-    rails_blob_path(item.images, disposition: "attachment")
-  end
 
 end

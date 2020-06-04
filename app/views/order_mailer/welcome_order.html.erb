@@ -9,10 +9,12 @@
 
   
  <%= @order.items.each do |item| %>
-   <%= image_tag(item.image) %>
+<%= image_tag(item.image,  :size => "260x180") %> 
   <%end%>
- 
- 
+ <br>
+ <br>
+
+ <p>
       Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
     </p>
     <p> À très vite sur Ze Kitten Project !</p>
