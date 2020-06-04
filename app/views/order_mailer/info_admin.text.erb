@@ -6,7 +6,7 @@ Commande passée par <%= @user.first_name %> <%= @user.last_name %> le <%= @orde
 
 
  <%= @order.items.each do |item| %>
-<%= image_tag(item.image,  :size => "260x180") %> 
+<%= image_tag(item.image.url,  :size => "260x180") %> 
   <%end%>
  
 <%= @url %>

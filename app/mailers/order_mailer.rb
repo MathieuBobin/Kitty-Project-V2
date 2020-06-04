@@ -1,14 +1,17 @@
 class OrderMailer < ApplicationMailer
-  
+  require 'open-uri'
+
   default from: 'zekittenproject@gmail.com'
  
   def welcome_order(order)
     #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
     @order = order 
     @user = order.user
+    @order_items = order.order_items
+    @order_items.item_id.attach(image.id)
+    attachments.inline["chaton.jpg"] = open(image).read
+
     
-    #@order_image = order.item.image_url
-    #@image_url = Rails.application.routes.url_helpers.rails_blob_url(order)
       
     #on définit une variable @url qu'on utilisera dans la view d’e-mail
     @url  = 'https://ze-kitten-project.herokuapp.com/' 
