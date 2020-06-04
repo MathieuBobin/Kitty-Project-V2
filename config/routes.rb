@@ -12,10 +12,13 @@ Rails.application.routes.draw do
   resources :items, only: [:show] do
     resources :images, only: [:create]
   end
-  get '/contact', to: 'carts#contact'
+  resources :users, only: [:show] do
+    resources :avatars, only: [:create]
+  end
 
   # Add pesonalized routes
   get '/mon_panier', to: 'carts#show', as: 'mon_panier'
   get '/mon_profil', to: 'users#show', as: 'mon_profil'
   get '/editer_mon_profil', to: 'users#edit', as: 'editer_mon_profil'
+  get '/contact', to: 'carts#contact'
 end
