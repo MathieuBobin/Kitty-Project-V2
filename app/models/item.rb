@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_items
   has_many :cart_items
   has_many :carts, through: :cart_items
+  belongs_to :category
   has_one_attached :image
 
   def my_url
