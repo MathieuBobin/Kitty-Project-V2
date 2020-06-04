@@ -1,1 +1,8 @@
-alert('aaa')
+
+document.getElementById("deletebtn").remove();
+document.getElementById("total").innerHTML = '<%=current_user_cart_items_count%>';
+document.getElementById("totalprice").innerHTML = '<%=current_user_cart_total%>';
+document.getElementById("items_count").innerHTML = "<%= current_user_cart_items_count %>";
+
+window.location = '<%= mon_panier_path%>'
+

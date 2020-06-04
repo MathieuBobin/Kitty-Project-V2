@@ -25,10 +25,12 @@
         <div class="card-body">
           <p class = "card-text"><%=x.title%></p>
           <p class="card-text">Prix de la photo: <%=x.price%> euros</p>
+          <span class="badge badge-primary"><%=Category.find(x.category_id).name%></span>
         </div>
+        
         <div class="card-body">
           <a href="items/<%=x.id%>" class="card-link">Accéder à la fiche <a>
-              <%= link_to 'Ajouter au panier', item_cart_items_path(x.id), class:"btn btn-secondary btn-sm border border-secondary", method: :post%>
+              <%= link_to 'Ajouter au panier', item_cart_items_path(x.id), class:"btn btn-secondary btn-sm border border-secondary", method: :post, remote: true%>
         </div>
       </div>
     </div>
