@@ -3,9 +3,9 @@
 <div class="container-fluid mt-4">
     <h1 class="h3 mb-3 font-weight-normal text-center">Les photos de chatons disponibles actuellement :</h1>
     <div class = text-center>
-      <select class="custom-select" style = "width: 400px">
-        <option selected="">Choisissez une catégorie</option>
-        <option value="tous">Tous</option>
+      <select class="custom-select" style = "width: 400px" onchange="myFunction(this.value)">
+        <option value="">Choisissez une catégorie</option>
+        <option value="">Tous</option>
         <%@category.each do |x|%>
           <option value="<%=x.id%>"><%=x.name%></option>
         <%end%>
@@ -13,7 +13,7 @@
     </div>
     <br>
     <div class="row justify-content-center">
-    <%Item.all.sort_by{|obj| obj.id}.each do |x|%>
+    <%@items.sort_by{|obj| obj.id}.each do |x|%>
     <div class="col-auto mb-4">
       <div class="card mb-4">
         <h3 class="card-header"> Photo nº<%=x.id%></h3>
@@ -33,7 +33,17 @@
       </div>
     </div>
   <%end %>
-</div> 
+</div>
+
+<script>
+  function myFunction(category_id) {
+    if (category_id === '') {
+      window.location = "/items"; 
+    } else {
+      window.location = "/categories/"+ category_id +"/items"; 
+    }
+  }
+</script>
 
 
 

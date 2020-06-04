@@ -14,6 +14,9 @@ gem 'pry'
 gem "table_print"
 gem 'mailjet'
 gem "aws-sdk-s3", require: false
+gem 'i18n'
+gem 'rails-i18n', '~> 5.0'
+gem 'devise-i18n', '~> 1.9', '>= 1.9.1'
 # -------
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

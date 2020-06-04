@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :avatars, only: [:create]
   end
+  resources :categories, only: [:index] do
+    resources :items, only: [:index]
+  end
 
   # Add pesonalized routes
   get '/mon_panier', to: 'carts#show', as: 'mon_panier'
