@@ -30,11 +30,9 @@
         
         <div class="card-body">
           <a href="items/<%=x.id%>" class="card-link">Accéder à la fiche <a>
-              <% if user_signed_in? %>
-                <%= link_to 'Ajouter au panier', item_cart_items_path(x.id), class:"btn btn-secondary btn-sm border border-secondary", method: :post, remote: true %>
-              <% else %>
+              
                 <%= link_to 'Ajouter au panier', item_cart_items_path(x.id), class:"btn btn-secondary btn-sm border border-secondary", method: :post %>
-              <% end %>
+            
         </div>
       </div>
     </div>
