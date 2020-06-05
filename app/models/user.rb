@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :create_my_cart
   after_create :welcome_send
   belongs_to :cart, optional: true
   has_many :orders
@@ -9,11 +10,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  def hasnt_cart?
-    self.cart_id.nil?
-  end   
-  
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
+  end
+
+  private
+
+  def create_my_cart
+    self.update(cart: Cart.new)
   end
 end

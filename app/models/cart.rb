@@ -1,14 +1,14 @@
 class Cart < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :cart_items
   has_many :items, through: :cart_items
 
   def total
-    prices = self.items.map { |item|
+    items_prices = self.items.map { |item|
       item.price
     }
 
-    prices.sum
+    items_prices.sum
   end
 
   def items_count
