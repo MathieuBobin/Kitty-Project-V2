@@ -6,7 +6,7 @@ class CartItemsController < ApplicationController
     if @cart_item.valid?
       # flash[:notice] = 'Un produit a été ajouté à votre panier !'
     else
-      # flash[:alert] = purify_(@cart_item.errors.full_messages.to_sentence)
+      # flash[:alert] = purify_message(@cart_item.errors.full_messages.to_sentence)
     end
     
     respond_to do |format|
