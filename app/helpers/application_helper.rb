@@ -8,4 +8,8 @@ module ApplicationHelper
       when 'error' then 'alert-danger'
     end
   end
+
+  def purify_message(message)
+    message.split[1, message.length - 1].join(' ').strip
+  end
 end

@@ -17,11 +17,11 @@
       <td></td>
     </tr>
     <% @item_list.each do |x| %>
-      <tr id='deletebtn'>
+      <tr id='<%= x.id %>'>
         <%if Item.find(x.item_id).image.attached?%>
-        <th scope="row"><%= image_tag Item.find(x.item_id).image, alt: "Card image", width: 120, height: 80 %></th>
+          <th scope="row"><%= image_tag Item.find(x.item_id).image, alt: "Card image", width: 120, height: 80 %></th>
         <%else%>
-        <th scope="row"><p>=== Image ===</p></th>
+          <th scope="row"><p>=== Image ===</p></th>
         <%end%>
         <td><%=Item.find(x.item_id).title%></td>
         <td>1</td>
@@ -32,8 +32,8 @@
     <tr class="table-primary">
       <th scope="row">TOTAL</th>
       <td></td>
-      <td id="total" ><%=@item_list.count%></td>
-      <td id="totalprice"><%=@total%>€</td>
+      <td id="total_quantity" ><%=@item_list.count%></td>
+      <td id="total_price"><%=@total%>€</td>
       <td></td>
     </tr>
   </tbody>

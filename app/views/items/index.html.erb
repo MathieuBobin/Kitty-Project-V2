@@ -41,6 +41,8 @@
   <%end %>
 </div>
 
+<button id='btn'>Cliquer</button>
+
 <script>
   function myFunction(category_id) {
     if (category_id === '') {
@@ -49,6 +51,18 @@
       window.location = "/categories/"+ category_id +"/items"; 
     }
   }
+
+  let btn = document.getElementById('btn');
+
+  let onClick = function () {
+      console.log('click')
+      var request = new XMLHttpRequest();
+      // request.onload = callback;
+      request.open("get", "http://localhost:3000/categories");
+      request.send();
+    };
+
+  btn.addEventListener('click', onClick);
 </script>
 
 

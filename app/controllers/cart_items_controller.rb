@@ -2,11 +2,11 @@ class CartItemsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def create
-    @cart_item =  CartItem.new(item_id: params[:item_id], cart_id: current_user.cart_id)
-    if @cart_item.save
+    @cart_item =  CartItem.create(item_id: params[:item_id], cart_id: current_user.cart_id)
+    if @cart_item.valid?
       # flash[:notice] = 'Un produit a été ajouté à votre panier !'
     else
-      # flash[:alert] = @cart_item.errors.full_messages.to_sentence
+      # flash[:alert] = purify_(@cart_item.errors.full_messages.to_sentence)
     end
     
     respond_to do |format|
@@ -17,7 +17,8 @@ class CartItemsController < ApplicationController
   end
   
   def destroy
-    CartItem.destroy(params[:id])
+    @cart_item_id = params[:id]
+    CartItem.destroy(@cart_item_id)
 
     respond_to do |format|
       format.html { redirect_to mon_panier_path }

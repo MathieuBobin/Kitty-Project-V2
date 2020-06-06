@@ -14,9 +14,9 @@ gem 'pry'
 gem "table_print"
 gem 'mailjet'
 gem "aws-sdk-s3", require: false
-gem 'i18n'
 gem 'rails-i18n', '~> 5.0'
 gem 'devise-i18n', '~> 1.9', '>= 1.9.1'
+gem 'jquery-rails'
 # -------
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -35,7 +35,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production

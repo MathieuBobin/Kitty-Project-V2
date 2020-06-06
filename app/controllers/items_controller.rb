@@ -1,9 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @category = Category.all
-    puts '$'*110
-    puts params[:category_id]
-    puts '$'*110
+    
     category_id = params[:category_id]
     if (!category_id.nil?)
       category = Category.find(category_id)
