@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   def index
-    @category = Category.all
+    @categories = Category.all
     
-    category_id = params[:category_id]
-    if (!category_id.nil?)
-      category = Category.find(category_id)
+    @category_id = params[:category_id]
+    unless (@category_id.nil?) || (@category_id === '') 
+      category = Category.find(@category_id)
       @items = category.items
     else
       @items = Item.all
