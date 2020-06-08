@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
   def index
+    puts '$'*110
+    p params
+    puts '$'*110
+    
     @categories = Category.all
     
     @category_id = params[:category_id]
