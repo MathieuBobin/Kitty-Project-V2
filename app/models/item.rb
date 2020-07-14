@@ -8,6 +8,5 @@ class Item < ApplicationRecord
   has_many :carts, through: :cart_items
   belongs_to :category
   has_one_attached :image
-
-
+  has_many :provisional_cart_items
 end
