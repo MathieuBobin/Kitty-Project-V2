@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'provisional_cart_items/index'
   get 'provisional_cart_items/create'
   root 'items#index'
   

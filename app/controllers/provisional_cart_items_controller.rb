@@ -23,6 +23,8 @@ class ProvisionalCartItemsController < ApplicationController
   
   def destroy
     ProvisionalCartItem.destroy(params[:id])
+
+    redirect_to provisional_cart_items_path
   end
   
   private
