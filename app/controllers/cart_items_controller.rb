@@ -1,6 +1,4 @@
 class CartItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
-
   def create
     @cart_item =  CartItem.create(item_id: params[:item_id], cart_id: current_user.cart_id)
     if @cart_item.valid?
