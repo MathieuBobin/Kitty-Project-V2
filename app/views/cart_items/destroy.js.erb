@@ -5,5 +5,5 @@ document.getElementById("total_price").innerHTML = '<%=current_user_cart_total %
 document.getElementById("items_count").innerHTML = "<%= current_user_cart_items_count %>";
 
 <% if current_user_cart_items_count == 0 %>
-  window.location = '<%= mon_panier_path%>'
+  window.location = '<%= cart_items_path%>'
 <% end %>

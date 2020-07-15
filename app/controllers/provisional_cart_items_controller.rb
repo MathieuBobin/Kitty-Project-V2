@@ -1,14 +1,17 @@
 class ProvisionalCartItemsController < ApplicationController
+  def index
+    @provisional_cart_items = disconnected_user_cart_items
+    @total_quantities = disconnected_user_cart_items_count
+    @amount = disconnected_user_cart_total
+  end
+  
   def create
-    unique_id = cookies[:unique_id]
-    
-    if unique_id.nil?
+    if disconnected_user_unique_id.nil?
       unique_id = Time.now.to_i.to_s.concat('.', Time.now.nsec.to_s) 
-      cookies.permanent[:unique_id] = unique_id
-      unique_id = cookies[:unique_id]
+      cookies.permanent[:disconnected_user_unique_id] = unique_id
     end
     
-    @provisional_cart_item = ProvisionalCartItem.create(item_id: permitted_item_id_param, unique_id: unique_id)
+    @provisional_cart_item = ProvisionalCartItem.create(item_id: permitted_item_id_param, unique_id: disconnected_user_unique_id)
     if @provisional_cart_item.valid?
       flash[:notice] = 'Un produit a été ajouté à votre panier !'
     else
@@ -16,6 +19,10 @@ class ProvisionalCartItemsController < ApplicationController
     end
     
     redirect_back fallback_location: root_path
+  end
+  
+  def destroy
+    ProvisionalCartItem.destroy(params[:id])
   end
   
   private
