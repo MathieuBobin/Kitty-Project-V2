@@ -7,24 +7,33 @@ class ProvisionalCartItemsController < ApplicationController
   
   def create
     if disconnected_user_unique_id.nil?
-      unique_id = Time.now.to_i.to_s.concat('.', Time.now.nsec.to_s) 
+      unique_id = Time.now.to_i.to_s.concat('.', Time.now.nsec.to_s, '.', SecureRandom.urlsafe_base64) 
       cookies.permanent[:disconnected_user_unique_id] = unique_id
     end
+
+    @item = Item.find(permitted_item_id_param)
     
-    @provisional_cart_item = ProvisionalCartItem.create(item_id: permitted_item_id_param, unique_id: disconnected_user_unique_id)
+    @provisional_cart_item = ProvisionalCartItem.create(item: @item, unique_id: disconnected_user_unique_id)
     if @provisional_cart_item.valid?
-      flash[:notice] = 'Un produit a été ajouté à votre panier !'
+      # flash[:notice] = 'Un produit a été ajouté à votre panier !'
     else
-      flash[:alert] = purify_message(@provisional_cart_item.errors.full_messages.to_sentence)
+      # flash[:alert] = purify_message(@provisional_cart_item.errors.full_messages.to_sentence)
     end
     
-    redirect_back fallback_location: root_path
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.js { }
+    end
   end
   
   def destroy
-    ProvisionalCartItem.destroy(params[:id])
+    @provisional_cart_item_id = params[:id]
+    ProvisionalCartItem.destroy(@provisional_cart_item_id)
 
-    redirect_to provisional_cart_items_path
+    respond_to do |format|
+      format.html { redirect_to provisional_cart_items_path }
+      format.js { }
+    end
   end
   
   private

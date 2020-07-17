@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'provisional_cart_items/create'
   root 'items#index'
   
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
   resources :users, except: [:show, :edit]
   resources :users, only: [:show] do
     resources :avatars, only: [:create]

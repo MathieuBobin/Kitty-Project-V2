@@ -1,4 +1,4 @@
-<div class="container center_div">
+<div id='provisional-cart-items' class="container center_div">
   <% if @provisional_cart_items.count != 0 %>
     <div id="recap" class="texte-bienvenue text-center">
       <br>
@@ -24,14 +24,14 @@
           <td><%= x.item.title %></td>
           <td>1</td>
           <td><%= x.item.price %>€</td>
-          <td><%= link_to "Supprimer", provisional_cart_item_path(x.id), method: 'delete', :class => "btn btn-danger btn-sm", remote: false %></td>
+          <td><%= link_to "Supprimer", provisional_cart_item_path(x.id), method: 'delete', :class => "btn btn-danger btn-sm", remote: true %></td>
         </tr>
       <%end%>
       <tr class="table-primary">
         <th scope="row">TOTAL</th>
         <td></td>
-        <td id="total_quantity" ><%= @total_quantities %></td>
-        <td id="total_price"><%= @amount %>€</td>
+        <td id="total-quantity" ><%= @total_quantities %></td>
+        <td id="total-price"><%= @amount %>€</td>
         <td></td>
       </tr>
     </tbody>
@@ -42,16 +42,6 @@
     <%= link_to "Passer Commande", new_order_path, :class => "btn btn-primary text-decoration-none" %>
     <br>
   <%else%>
-
-  <div id="empty_img" class="texte-bienvenue text-center">
-      <br>
-      <h2>Vous n'avez aucun produit dans votre panier!</h2> <br>
-      <img src = https://images.pexels.com/photos/127027/pexels-photo-127027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 style="height: 500px;" >
-      <br>
-      <br>
-    <a class="btn btn-secondary text-decoration-none" href="/">Revenir à l'accueil</a>
-      <br>
-      <br>
-    </div>
+    <%= render 'provisional_cart_items/picture_indicating_empty_provisional_cart' %>
   <%end%>
 </div>

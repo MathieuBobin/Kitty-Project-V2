@@ -34,4 +34,12 @@ module UsersHelper
 
     items_prices.sum
   end
+
+  def add_provisional_cart_to_current_user_cart
+    disconnected_user_cart_items.each { |rec|
+      CartItem.create(cart: current_user_cart, item: rec.item)
+    }
+    
+    disconnected_user_cart_items.destroy_all
+  end
 end

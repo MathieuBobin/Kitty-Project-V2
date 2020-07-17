@@ -8,7 +8,8 @@ class CartItemsController < ApplicationController
   end
   
   def create
-    @cart_item =  CartItem.create(item_id: params[:item_id], cart_id: current_user.cart_id)
+    @item = Item.find(permitted_item_id_param)
+    @cart_item =  CartItem.create(item: @item, cart_id: current_user.cart_id)
     if @cart_item.valid?
       # flash[:notice] = 'Un produit a été ajouté à votre panier !'
     else
@@ -30,5 +31,11 @@ class CartItemsController < ApplicationController
       format.html { redirect_to cart_items_path }
       format.js { }
     end
+  end
+
+  private
+
+  def permitted_item_id_param
+    params.permit(:item_id).require(:item_id)
   end
 end
