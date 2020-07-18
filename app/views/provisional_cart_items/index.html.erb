@@ -6,35 +6,37 @@
       <br>
     </div>
     <table class="table table-hover">
-    <tbody>
-      <tr class="table-active">
-        <th scope="row">PHOTO</th>
-        <td>Titre</td>
-        <td>Quantité</td>
-        <td>Prix</td>
-        <td></td>
-      </tr>
-      <% @provisional_cart_items.each do |x| %>
-        <tr id='<%= x.id %>'>
-          <%if x.item.image.attached? %>
-            <th scope="row"><%= image_tag x.item.image, alt: "Card image", width: 120, height: 80 %></th>
-          <%else%>
-            <th scope="row"><p>=== Image ===</p></th>
-          <%end%>
-          <td><%= x.item.title %></td>
-          <td>1</td>
-          <td><%= x.item.price %>€</td>
-          <td><%= link_to "Supprimer", provisional_cart_item_path(x.id), method: 'delete', :class => "btn btn-danger btn-sm", remote: true %></td>
+      <thead>
+        <tr class="table-active">
+          <th scope="col">PHOTO</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Quantité</th>
+          <th scope="col">Prix</th>
+          <th scope="col"></th>
         </tr>
-      <%end%>
-      <tr class="table-primary">
-        <th scope="row">TOTAL</th>
-        <td></td>
-        <td id="total-quantity" ><%= @total_quantities %></td>
-        <td id="total-price"><%= @amount %>€</td>
-        <td></td>
-      </tr>
-    </tbody>
+      </thead>
+      <tbody>
+        <% @provisional_cart_items.each do |x| %>
+          <tr id='<%= x.id %>'>
+            <%if x.item.image.attached? %>
+              <td><%= image_tag x.item.image, alt: "Card image", width: 120, height: 80 %></td>
+            <%else%>
+              <th><p>=== Image ===</p></th>
+            <%end%>
+            <td><%= x.item.title %></td>
+            <td><%= select_tag 'quantity', options_for_select((1..10)), class: 'form-control form-control-sm w-50' %></td>
+            <td><%= x.item.price %>€</td>
+            <td><%= link_to "Supprimer", provisional_cart_item_path(x.id), method: 'delete', :class => "btn btn-danger btn-sm", remote: true %></td>
+          </tr>
+        <%end%>
+        <tr class="table-primary">
+          <th>TOTAL</th>
+          <td></td>
+          <td id="total-quantity" ><%= @total_quantities %></td>
+          <td id="total-price"><%= @amount %>€</td>
+          <td></td>
+        </tr>
+      </tbody>
     </table>
 
     <br>
