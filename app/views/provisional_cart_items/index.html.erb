@@ -24,7 +24,7 @@
               <th><p>=== Image ===</p></th>
             <%end%>
             <td><%= x.item.title %></td>
-            <td><%= select_tag 'quantity', options_for_select((1..10)), class: 'form-control form-control-sm w-50' %></td>
+            <td><%= select_tag 'quantity', options_for_select((1..10), x.quantity), class: 'form-control form-control-sm w-auto' %></td>
             <td><%= x.item.price %>€</td>
             <td><%= link_to "Supprimer", provisional_cart_item_path(x.id), method: 'delete', :class => "btn btn-danger btn-sm", remote: true %></td>
           </tr>

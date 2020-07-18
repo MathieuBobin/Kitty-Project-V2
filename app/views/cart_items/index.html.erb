@@ -19,12 +19,12 @@
       <% @cart_items.each do |x| %>
         <tr id='<%= x.id %>'>
           <%if x.item.image.attached? %>
-            <td><%= image_tag x.item.image, alt: "Card image", width: 120, height: 80 %></td>
+            <><%= image_tag x.item.image, alt: "Card image", width: 120, height: 80 %></td>
           <%else%>
-            <th><p>=== Image ===</p></th=>
+            <th><p>=== Image ===</p></th>
           <%end%>
           <td><%= x.item.title %></td>
-          <td><td><%= select_tag 'quantity', options_for_select((1..10)), class: 'form-control form-control-sm w-50' %></td></td>
+          <td><%= select_tag 'quantity', options_for_select((1..10), x.quantity), class: 'form-control form-control-sm w-auto' %></td>
           <td><%= x.item.price %>€</td>
           <td><%= link_to "Supprimer", cart_item_path(x.id), method: 'delete', :class => "btn btn-danger btn-sm", remote: true %></td>
         </tr>

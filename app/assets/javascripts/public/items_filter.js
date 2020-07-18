@@ -1,8 +1,8 @@
 $(document).ready(() => {
   $("#category").change(() => {
-    let category_id = $("#category").val();
-    let url = "/categories/" + category_id + "/items";
-    if (category_id == '') {
+    let categoryId = $("#category").val();
+    let url = "/categories/" + categoryId + "/items";
+    if (categoryId == '') {
       url = '/items';
     }
 
@@ -12,10 +12,9 @@ $(document).ready(() => {
 
     Http.onreadystatechange = (e) => {
       result = Http.responseText;
-      console.log(result)
       $('div#items-container').remove(); 
       let items_container = $(result).filter('div#items-container');
-      $('#category_selector').after(items_container);
+      $('#category-selector').after(items_container);
     }
   });
 });
