@@ -1,6 +1,6 @@
 class ProvisionalCartItemsController < ApplicationController
   def index
-    @provisional_cart_items = disconnected_user_cart_items
+    @provisional_cart_items = disconnected_user_cart_items.sort_by(&:created_at)
     @total_quantities = disconnected_user_cart_items_count
     @amount = disconnected_user_cart_total
   end

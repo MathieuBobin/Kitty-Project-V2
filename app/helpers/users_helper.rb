@@ -20,7 +20,7 @@ module UsersHelper
   end
 
   def disconnected_user_cart_items
-    ProvisionalCartItem.where(unique_id: disconnected_user_unique_id).sort_by(&:created_at)
+    ProvisionalCartItem.where(unique_id: disconnected_user_unique_id)
   end
 
   def disconnected_user_cart_items_count

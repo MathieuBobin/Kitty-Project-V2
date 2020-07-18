@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
   def index
     @cart = current_user_cart
-    @cart_items = @cart.cart_items
+    @cart_items = @cart.cart_items.sort_by(&:created_at)
     
     @total_quantities = current_user_cart_items_count
     @amount = current_user_cart_total
@@ -20,7 +20,11 @@ class CartItemsController < ApplicationController
       format.html { redirect_back fallback_location: root_path }
       format.js { }
     end
-    
+  end
+
+  def update
+    cart_item = CartItem.find(permitted_cart_item_id_param)
+    cart_item.update(quantity: permitted_item_quantity_param)
   end
   
   def destroy
@@ -37,5 +41,13 @@ class CartItemsController < ApplicationController
 
   def permitted_item_id_param
     params.permit(:item_id).require(:item_id)
+  end
+
+  def permitted_cart_item_id_param
+    params.permit(:id).require(:id)
+  end  
+  
+  def permitted_item_quantity_param
+    params.permit(:quantity).require(:quantity)
   end
 end
