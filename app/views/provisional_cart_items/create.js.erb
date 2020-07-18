@@ -1,6 +1,6 @@
 itemId = <%= @item.id %>;
 addItemBtn = $('div#' + itemId + '-add-to-cart-btns-container > a.btn');
-addItemBtn.blur()
+addItemBtn.blur();
 
 document.getElementById("items-count").innerHTML = "<%= disconnected_user_cart_items_count %>";
 <% if @provisional_cart_item.invalid? %>

@@ -1,6 +1,6 @@
 <div id='items-container' class="container-fluid mt-4">
   <div class="row justify-content-center">
-    <% items.sort_by{|obj| obj.id}.each do |x| %>
+    <% items.sort_by {|obj| obj.id}.each do |x| %>
       <div class="col-auto mb-4">
         <div class="card mb-4">
           <h3 class="card-header"> Photo nº<%= x.id %></h3>
