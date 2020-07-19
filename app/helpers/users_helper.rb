@@ -24,20 +24,24 @@ module UsersHelper
   end
 
   def disconnected_user_cart_items_count
-    disconnected_user_cart_items.count
+    items_quantities = disconnected_user_cart_items.map { |rec|
+      rec.quantity
+    }
+
+    items_quantities.sum
   end
 
   def disconnected_user_cart_total
-    items_prices = disconnected_user_cart_items.map {|rec| 
-      rec.item.price
+    sutotals = disconnected_user_cart_items.map {|rec| 
+      rec.quantity * rec.item.price
     }
 
-    items_prices.sum
+    sutotals.sum
   end
 
   def add_provisional_cart_to_current_user_cart
-    disconnected_user_cart_items.each { |rec|
-      CartItem.create(cart: current_user_cart, item: rec.item)
+    disconnected_user_cart_items.sort_by(&:created_at).each { |rec|
+      CartItem.create(cart: current_user_cart, item: rec.item, quantity: rec.quantity)
     }
     
     disconnected_user_cart_items.destroy_all

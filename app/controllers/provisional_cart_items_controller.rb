@@ -2,7 +2,7 @@ class ProvisionalCartItemsController < ApplicationController
   def index
     @provisional_cart_items = disconnected_user_cart_items.sort_by(&:created_at)
     @total_quantities = disconnected_user_cart_items_count
-    @amount = disconnected_user_cart_total
+    @total = disconnected_user_cart_total
   end
   
   def create
@@ -29,6 +29,9 @@ class ProvisionalCartItemsController < ApplicationController
   def update
     provisional_cart_item = ProvisionalCartItem.find(permitted_provisional_cart_item_id_param)
     provisional_cart_item.update(quantity: permitted_item_quantity_param)
+    
+    @total_quantities = disconnected_user_cart_items_count
+    @total = disconnected_user_cart_total
   end
   
   def destroy

@@ -4,7 +4,7 @@ class CartItemsController < ApplicationController
     @cart_items = @cart.cart_items.sort_by(&:created_at)
     
     @total_quantities = current_user_cart_items_count
-    @amount = current_user_cart_total
+    @total = current_user_cart_total
   end
   
   def create
@@ -25,6 +25,9 @@ class CartItemsController < ApplicationController
   def update
     cart_item = CartItem.find(permitted_cart_item_id_param)
     cart_item.update(quantity: permitted_item_quantity_param)
+
+    @total_quantities = current_user_cart_items_count
+    @total = current_user_cart_total
   end
   
   def destroy

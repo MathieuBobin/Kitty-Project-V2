@@ -1,7 +1,7 @@
 document.getElementById("<%= @cart_item_id %>").remove();
-document.getElementById("total-quantity").innerHTML = '<%= current_user_cart_items_count %>';
-document.getElementById("total-price").innerHTML = '<%=current_user_cart_total %>';
 document.getElementById("items-count").innerHTML = "<%= current_user_cart_items_count %>";
+document.getElementById("total-quantities").innerHTML = '<%= current_user_cart_items_count %>';
+document.getElementById("total").innerHTML = '<%=current_user_cart_total %>';
 
 <% if current_user_cart_items_count == 0 %>
   itemsContainer = $('div#cart-items');
