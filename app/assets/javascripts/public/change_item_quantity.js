@@ -24,7 +24,7 @@ $(document).ready(() => {
         let total = $(result).filter('p#total').text();
         $('span#items-count').text(totalQuantities);
         $('td#total-quantities').text(totalQuantities);
-        $('td#total').text(total);
+        $('td#total').text(total+'€');
       },
       error: (error) => {
 

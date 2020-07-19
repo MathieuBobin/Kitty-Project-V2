@@ -7,18 +7,19 @@
     <h1>Récap de la commande numéro  <%= @order.id %></h1>
     </p> Cette commande a été passée par <%= @user.first_name %> <%= @user.last_name %> le <%= @order.created_at %></p>
 
-<br>
-<br>
+    <br>
+    <br>
 
- <%= @order.items.each do |item| %>
-<%= image_tag(item.image,  :size => "260x180") %> 
-  <%end%>
- 
- <br>
- <br>
+    <%= @order.items.each do |item| %>
+      <% if item.image.attached? %>
+        <%= image_tag(item.image,  :size => "260x180") %> 
+      <% end %>
+    <%end%>
+
+    <br>
+    <br>
     <p>
-     <%= @url %>
+    <%= @url %>
     </p>
-   
   </body>
 </html>
