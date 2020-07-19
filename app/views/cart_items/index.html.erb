@@ -19,7 +19,7 @@
       <% @cart_items.each do |x| %>
         <tr id='<%= x.id %>'>
           <%if x.item.image.attached? %>
-            <><%= image_tag x.item.image, alt: "Card image", width: 120, height: 80 %></td>
+            <td><%= image_tag x.item.image, alt: "Card image", width: 120, height: 80 %></td>
           <%else%>
             <th><p>=== Image ===</p></th>
           <%end%>
