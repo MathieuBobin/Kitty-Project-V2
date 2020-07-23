@@ -12,12 +12,17 @@ class ProvisionalCartItemsController < ApplicationController
     end
 
     @item = Item.find(permitted_item_id_param)
+    params = {item: @item, unique_id: disconnected_user_unique_id}
     
-    @provisional_cart_item = ProvisionalCartItem.create(item: @item, unique_id: disconnected_user_unique_id)
-    if @provisional_cart_item.valid?
-      # flash[:notice] = 'Un produit a été ajouté à votre panier !'
+    if ProvisionalCartItem.exists?(params)
+      ProvisionalCartItem.find_by(params).increment!(:quantity)
     else
-      # flash[:alert] = purify_message(@provisional_cart_item.errors.full_messages.to_sentence)
+      @provisional_cart_item = ProvisionalCartItem.create(params)
+      if @provisional_cart_item.valid?
+        # flash[:notice] = 'Un produit a été ajouté à votre panier !'
+      else
+        # flash[:alert] = purify_message(@provisional_cart_item.errors.full_messages.to_sentence)
+      end
     end
     
     respond_to do |format|

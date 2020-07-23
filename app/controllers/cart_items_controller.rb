@@ -9,11 +9,18 @@ class CartItemsController < ApplicationController
   
   def create
     @item = Item.find(permitted_item_id_param)
-    @cart_item =  CartItem.create(item: @item, cart_id: current_user.cart_id)
-    if @cart_item.valid?
-      # flash[:notice] = 'Un produit a été ajouté à votre panier !'
+    params = {item: @item, cart: current_user_cart}
+
+    if CartItem.exists?(params)
+      CartItem.find_by(params).increment!(:quantity)
     else
-      # flash[:alert] = purify_message(@cart_item.errors.full_messages.to_sentence)
+      @cart_item = CartItem.create(params)
+
+      if @cart_item.valid?
+        # flash[:notice] = 'Un produit a été ajouté à votre panier !'
+      else
+        # flash[:alert] = purify_message(@cart_item.errors.full_messages.to_sentence)
+      end
     end
     
     respond_to do |format|
