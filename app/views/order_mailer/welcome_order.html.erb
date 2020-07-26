@@ -8,9 +8,9 @@
     </p> Commande numéro <%= @order.id %></p>
     <br>
     <br>
-    <%= @order.items.each do |item| %>
+    <%= @order.items.each_with_index do |item, index| %>
       <% if item.image.attached? %>
-        <%= image_tag(item.image, :size => "260x180") %> 
+        <%= image_tag attachments[@filenames[index]].url, :size => "260x180" %> 
       <% end %>
     <%end%>
     <br>

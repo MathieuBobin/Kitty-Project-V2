@@ -10,13 +10,14 @@ class OrderMailer < ApplicationMailer
     # on récupère l'instance order pour ensuite pouvoir la passer à la view en @order
     @order = order
 
-    order.items.each { |item|
-      if item.image.attached? 
-        filename = item.id.to_s + item.image.filename.extension_with_delimiter
+    @filenames = []
+    order.items.each_with_index { |item, index|
+      if item.image.attached?
+        @filenames << item.title + item.image.filename.extension_with_delimiter
         if ActiveStorage::Blob.service.respond_to?(:path_for)
-          attachments.inline[filename] = File.read(ActiveStorage::Blob.service.send(:path_for, item.image.key))
+          attachments.inline[@filenames[index]] = File.read(ActiveStorage::Blob.service.send(:path_for, item.image.key))
         elsif ActiveStorage::Blob.service.respond_to?(:download)
-          attachments.inline[filename] = item.image.download
+          attachments.inline[@filenames[index]] = item.image.download
         end
       end
     }
