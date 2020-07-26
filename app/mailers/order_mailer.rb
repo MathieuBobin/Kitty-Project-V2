@@ -4,11 +4,15 @@ class OrderMailer < ApplicationMailer
   default from: 'zekittenproject@gmail.com'
   
   def welcome_order(order)
-    # on récupère l'instance order pour ensuite pouvoir la passer à la view en @order
-    @order = order
-    
     #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
     @user = order.user
+
+    # on récupère l'instance order pour ensuite pouvoir la passer à la view en @order
+    @order = order
+
+    order.items.each { |item|
+      attachments["#{item.title}.jpg"] = File.read(item.image.download)
+    }
 
     #on définit une variable @url qu'on utilisera dans la view d’e-mail
     @url = 'https://ze-kitten-project.herokuapp.com/' 
