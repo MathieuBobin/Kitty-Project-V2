@@ -6,19 +6,15 @@
   <body>
     <h1>Merci pour votre commande</h1>
     </p> Commande numéro <%= @order.id %></p>
-
     <br>
     <br>
-
-  
     <%= @order.items.each do |item| %>
       <% if item.image.attached? %>
-        <%= image_tag(item.image,  :size => "260x180") %> 
+        <%= image_tag(item.image, :size => "260x180") %> 
       <% end %>
     <%end%>
     <br>
     <br>
-
     <p>
       Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
     </p>
