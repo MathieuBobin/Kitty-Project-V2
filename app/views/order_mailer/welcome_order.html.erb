@@ -10,7 +10,7 @@
     <br>
     <%= @order.items.each_with_index do |item, index| %>
       <% if item.image.attached? %>
-        <%= image_tag attachments[@filenames[index]].url, :size => "260x180" %> 
+        <%= image_tag attachments[item.title + item.image.filename.extension_with_delimiter].url, :size => "260x180" %> 
       <% end %>
     <%end%>
     <br>
