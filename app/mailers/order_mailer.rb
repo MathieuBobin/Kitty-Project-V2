@@ -11,7 +11,14 @@ class OrderMailer < ApplicationMailer
     @order = order
 
     order.items.each { |item|
-      attachments["#{item.title}.jpg"] = File.read(item.image.download)
+      if item.image.attached? 
+        filename = item.id.to_s + item.image.filename.extension_with_delimiter
+        if ActiveStorage::Blob.service.respond_to?(:path_for)
+          attachments.inline[filename] = File.read(ActiveStorage::Blob.service.send(:path_for, item.image.key))
+        elsif ActiveStorage::Blob.service.respond_to?(:download)
+          attachments.inline[filename] = item.image.download
+        end
+      end
     }
 
     #on définit une variable @url qu'on utilisera dans la view d’e-mail
