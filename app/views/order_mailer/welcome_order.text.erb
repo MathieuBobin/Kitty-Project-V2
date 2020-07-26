@@ -3,7 +3,7 @@ Merci pour votre commande !
 
 Commande n° <%= @order.id %> 
 
-<%= @order.items.each do |item| %>
+<% @order.items.each do |item| %>
   <% if item.image.attached? %>
     <%= image_tag(item.image,  :size => "260x180") %> 
   <% end %>

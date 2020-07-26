@@ -8,7 +8,7 @@
     </p>Cette commande a été passée par <%= @user.first_name %> <%= @user.last_name %> le <%= @order.created_at %></p>
     <br>
     <br>
-    <%= @order.items.each do |item| %>
+    <% @order.items.each do |item| %>
       <% if item.image.attached? %>
         <%= image_tag(item.image, :size => "260x180") %> 
       <% end %>
